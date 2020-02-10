@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,旅行,思考,代码,博客" />
+   
+  <meta name="description" content="一座孤岛" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+     SeaHai&#39;s Blog
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/IAM.png" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="SeaHai's Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      
+<section class="cover">
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover1.jpg" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">SeaHai&#39;s Blog</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+
+<div id="main">
+  <section class="outer">
+  <article class="articles">
+    
+    
+    
+    
+    <article id="post-Ubuntu/Vim - 常用命令记录" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/ck6gj6ohg0014gkvcf56u8beb/"
+    >Vim - 常用命令记录</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/ck6gj6ohg0014gkvcf56u8beb/" class="article-date">
+  <time datetime="2019-08-13T16:00:00.000Z" itemprop="datePublished">2019-08-14</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="Vim常用命令记录"><a href="#Vim常用命令记录" class="headerlink" title="Vim常用命令记录"></a>Vim常用命令记录</h3><h4 id="文件的打开与保存"><a href="#文件的打开与保存" class="headerlink" title="文件的打开与保存"></a><strong>文件的打开与保存</strong></h4><blockquote>
+<p>vim filename　　　//打开名为filename的文件<br>    :w               //保存修改至源文件<br>    :wq              //保存修改并退出<br>    :q!              //不保存修改，直接退出<br>    :w filename      //保存修改(选中的部分)至filename(filename为新文件)</p>
+</blockquote>
+      
+      <a class="article-more-link" href="/2019/ck6gj6ohg0014gkvcf56u8beb/">阅读更多</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" rel="tag">命令行</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-React/Binding" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/ck6gj6ogr0006gkvcgvqx7rfm/"
+    >React - 双向绑定</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/ck6gj6ogr0006gkvcgvqx7rfm/" class="article-date">
+  <time datetime="2019-08-11T16:00:00.000Z" itemprop="datePublished">2019-08-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="ref-的-DOM-操作"><a href="#ref-的-DOM-操作" class="headerlink" title="ref 的 DOM 操作"></a>ref 的 DOM 操作</h2><p>React.js 当中提供了 ref 属性来帮助我们获取已经挂载的元素的 DOM 节点，你可以给某个 JSX 元素加上 ref属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;输入框自动聚焦,按钮绑定搜索</span><br><span class="line">class AutoFocusInput extends Component &#123;</span><br><span class="line">  componentDidMount () &#123;</span><br><span class="line">    this.input.focus()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  handleClick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">        const _post &#x3D;</span><br><span class="line">            &#123;</span><br><span class="line">                search: this.input.value</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  render () &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;input ref&#x3D;&#123;(input) &#x3D;&gt; this.input &#x3D; input&#125; &#x2F;&gt;</span><br><span class="line">      &lt;button onClick&#x3D;&#123;this.handleClick.bind(this)&#125; &#x2F;&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;AutoFocusInput &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;root&#39;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>可以看到我们给 input 元素加了一个 ref 属性，这个属性值是一个函数。当 input 元素在页面上挂载完成以后，React.js 就会调用这个函数，并且把这个挂载以后的 DOM 节点传给这个函数。在函数中我们把这个 DOM 元素设置为组件实例的一个属性，这样以后我们就可以通过 this.input 获取到这个 DOM 元素。</p>
+<p>然后我们就可以在 componentDidMount 中使用这个 DOM 元素，并且调用 this.input.focus() 的 DOM API。整体就达到了页面加载完成就自动 focus 到输入框的功能（大家可以注意到我们用上了 componentDidMount 这个组件生命周期）。</p>
+<p>我们可以给任意代表 HTML 元素标签加上 ref 从而获取到它 DOM 元素然后调用 DOM API。但是记住一个原则：能不用 ref 就不用。特别是要避免用 ref 来做 React.js 本来就可以帮助你做到的页面自动更新的操作和事件监听。多余的 DOM 操作其实是代码里面的“噪音”，不利于我们理解和维护。</p>
+<p>顺带一提的是，其实可以给组件标签也加上 ref ，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Clock ref&#x3D;&#123;(clock) &#x3D;&gt; this.clock &#x3D; clock&#125; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>这样你获取到的是这个 Clock 组件在 React.js 内部初始化的实例。但这并不是什么常用的做法，而且也并不建议这么做，所以这里就简单提及，有兴趣的朋友可以自己学习探索。</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM-%E6%93%8D%E4%BD%9C/" rel="tag">DOM 操作</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-React/DataTransmit" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/ck6gj6ogx000cgkvc8zhj2f0s/"
+    >React - 父子传值</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/ck6gj6ogx000cgkvc8zhj2f0s/" class="article-date">
+  <time datetime="2019-08-10T16:00:00.000Z" itemprop="datePublished">2019-08-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p>在React项目里，父子组件传值是比较常见的，今天学习了一下React的父子组件传值。</p>
+<ul>
+<li>父组件向子组件传值：父通过初始state，子组件通过this.props进行接收就可以了；</li>
+<li>子组件向父组件传值：需要绑定一个事件，然后事件是父组件传递过来的this.props.event来进行值的更替。</li>
+</ul>
+<h2 id="父向子传值："><a href="#父向子传值：" class="headerlink" title="父向子传值："></a>父向子传值：</h2><ul>
+<li>父组件 Comment.js ，子组件 ComentList.js</li>
+<li>父通过初始 state ，子组件通过 props 进行接收就可以了；
+      
+      <a class="article-more-link" href="/2019/ck6gj6ogx000cgkvc8zhj2f0s/">阅读更多</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" rel="tag">数据处理</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-React/Router" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/ck6gj6oh2000igkvc1kb9g9uy/"
+    >React - 路由跳转</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/ck6gj6oh2000igkvc1kb9g9uy/" class="article-date">
+  <time datetime="2019-08-09T16:00:00.000Z" itemprop="datePublished">2019-08-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在一张页面中，我们该如何去实现页面跳转呢</p>
+<p>Router提供了页面跳转渲染的方法，React应用会根据链接地址去决定要渲染的内容。链接地址不再是直接跳转，而是去告诉React，我需要怎么样的内容，让React去条件渲染</p>
+<h3 id="创建页面"><a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h3><p>首先，我们快速创建一个 React-app 应用。 删去src目录下的所有文件，新建 index</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; index.js</span><br><span class="line">    </span><br><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import ReactDOM from &#39;react-dom&#39;;</span><br><span class="line">import App from &#39;.&#x2F;App&#39;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;App&#x2F;&gt;, document.getElementById(&#39;root&#39;));</span><br></pre></td></tr></table></figure>
+      
+      <a class="article-more-link" href="/2019/ck6gj6oh2000igkvc1kb9g9uy/">阅读更多</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2%E4%BA%A4%E4%BA%92/" rel="tag">页面交互</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-JestTest/JestTest" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/ck6gj6ogu0008gkvc45cg7uyo/"
+    >Jest - 单元测试及可视化报告</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/ck6gj6ogu0008gkvc45cg7uyo/" class="article-date">
+  <time datetime="2019-07-12T12:10:33.000Z" itemprop="datePublished">2019-07-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%87%BD%E6%95%B0%E6%B5%8B%E8%AF%95/">函数测试</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><hr>
+<h4 id="安装-jest"><a href="#安装-jest" class="headerlink" title="安装 jest"></a>安装 jest</h4><blockquote>
+<p>cnpm install –save-dev jest</p>
+</blockquote>
+<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><blockquote>
+<p>jest -v</p>
+</blockquote>
+<p>确保你的项目已经安装了<strong>版本较新</strong>的 jest 测试框架(随版本更迭有可能产生无法预知的BUG，如：配置属性名变更)</p>
+<p>已完成对 jest 配置文件 <strong>jest.config.js</strong> 的基本配置</p>
+<h3 id="函数测试"><a href="#函数测试" class="headerlink" title="函数测试"></a>函数测试</h3><hr>
+<p>首先要做的事情：What needs to be tested?？</p>
+<p>如果你正在编写 Web 应用，那么一个好的起点就是测试应用的每个页面和每个用户交互。但 Web 应用由单元代码组成，如 <strong>UI 、函数和组件</strong>，分别需要单独进行测试。</p>
+      
+      <a class="article-more-link" href="/2019/ck6gj6ogu0008gkvc45cg7uyo/">阅读更多</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jest/" rel="tag">Jest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-CSS/滚动条样式设置" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/ck6gj6ogn0003gkvc8qg017a5/"
+    >滚动条样式设置</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/ck6gj6ogn0003gkvc8qg017a5/" class="article-date">
+  <time datetime="2019-07-07T16:00:00.000Z" itemprop="datePublished">2019-07-08</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>原生的滚动条样式及其丑陋，如果我们不设置滚动条的样式，影响使用心情</p>
+<h3 id="滚动条样式设置"><a href="#滚动条样式设置" class="headerlink" title="滚动条样式设置"></a>滚动条样式设置</h3><p>在 webkit 内核的浏览器中，可以通过以下css属性去修改滚动条样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">::-webkit-scrollbar </span><br><span class="line">滚动条整体部分。其中的属性: width,height,background,border等</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-button </span><br><span class="line">滚动条两端的按钮。可以用display:none让其不显示，也可添加背景图片、颜色</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-track </span><br><span class="line">外层轨道。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-track-piece </span><br><span class="line">内层轨道。具体区别看下面gif图，需要注意的就是它会覆盖第三个属性的样式</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-thumb </span><br><span class="line">滚动条里面可以拖动的那部分</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-corner </span><br><span class="line">边角，两个滚动条交汇处</span><br><span class="line"></span><br><span class="line">::-webkit-resizer </span><br><span class="line">两个滚动条交汇处用于拖动调整元素大小的小控件（基本用不上）</span><br></pre></td></tr></table></figure>
+
+      
+      <!-- reward -->
+      
+    </div>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Ubuntu/Ubuntu - 安装 MySQL Serve" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/ck6gj6ohe0010gkvcc3nscc5f/"
+    >Ubuntu 18.04 安装 MySQL Serve</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/ck6gj6ohe0010gkvcc3nscc5f/" class="article-date">
+  <time datetime="2019-07-02T16:00:00.000Z" itemprop="datePublished">2019-07-03</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p>MySQL是一个免费且广泛使用的开源关系数据库。如果您知道自己需要数据库但对所有可用选项知之甚少，那么这是一个不错的选择。</p>
+<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><blockquote>
+<p>sudo apt-get update<br>sudo apt-get install mysql-server</p>
+</blockquote>
+<h3 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h3><p>安装完成后，您可以通过运行以下命令来启动数据库服务。如果该服务已启动，则会显示一条消息，通知您该服务已在运行：</p>
+<blockquote>
+<p>systemctl start mysql</p>
+</blockquote>
+<h3 id="重启时启动"><a href="#重启时启动" class="headerlink" title="重启时启动"></a>重启时启动</h3><p>要确保在重新引导后启动数据库服务器，请运行以下命令：</p>
+<blockquote>
+<p>systemctl enable mysql</p>
+</blockquote>
+<h3 id="跨权使用mysql"><a href="#跨权使用mysql" class="headerlink" title="跨权使用mysql"></a>跨权使用mysql</h3><blockquote>
+<p>sudo mysql(用于忘记root密码时配置MySQL)</p>
+</blockquote>
+      
+      <a class="article-more-link" href="/2019/ck6gj6ohe0010gkvcc3nscc5f/">阅读更多</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xftp/" rel="tag">xftp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/" rel="tag">数据库操作</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-about/about" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/ck6gj6oif003pgkvcej3v4b1n/"
+    >about</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/ck6gj6oif003pgkvcej3v4b1n/" class="article-date">
+  <time datetime="2019-06-28T12:10:33.000Z" itemprop="datePublished">2019-06-28</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h4 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h4><p>一个正在摸爬滚打、努力学习WEB前端的小白程序猿</p>
+<p>西南科技大学 2017 级学生</p>
+<p>本科专业物联网工程，正在学习前端</p>
+<p>大学算是虚度了两年光阴，悔不当初，于是下决心成为一名前端工程师</p>
+<h4 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h4><p>Email：<a href="mailto:790041427@qq.com">790041427@qq.com</a></p>
+<p>Blog：<a href="https://seahaiworld.github.io/blog" target="_blank" rel="noopener">https://seahaiworld.github.io/blog</a></p>
+<p>Gitee：<a href="https://gitee.com/SeaHaiWorld" target="_blank" rel="noopener">https://gitee.com/SeaHaiWorld</a></p>
+<p>Github：<a href="https://github.com/SeaHaiWorld" target="_blank" rel="noopener">https://github.com/SeaHaiWorld</a></p>
+<p>方向：WEB前端，移动端</p>
+<p>爱好：吃饭睡觉打游戏</p>
+<p>目标：WEB前端工程师</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+  </article>
+  
+
+  
+  <nav class="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+  
+</section>
+</div>
+
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2020
+        SeaHai
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/IAM.png" alt="SeaHai&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['面朝大海，春暖花开','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 100,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

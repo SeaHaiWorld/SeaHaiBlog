@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,旅行,思考,代码,博客" />
+   
+  <meta name="description" content="一座孤岛" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Jest - 单元测试及可视化报告 |  SeaHai&#39;s Blog
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/IAM.png" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="SeaHai's Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-JestTest/JestTest" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Jest - 单元测试及可视化报告
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/ck6gj6ogu0008gkvc45cg7uyo/" class="article-date">
+  <time datetime="2019-07-12T12:10:33.000Z" itemprop="datePublished">2019-07-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%87%BD%E6%95%B0%E6%B5%8B%E8%AF%95/">函数测试</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.3k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><hr>
+<h4 id="安装-jest"><a href="#安装-jest" class="headerlink" title="安装 jest"></a>安装 jest</h4><blockquote>
+<p>cnpm install –save-dev jest</p>
+</blockquote>
+<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><blockquote>
+<p>jest -v</p>
+</blockquote>
+<p>确保你的项目已经安装了<strong>版本较新</strong>的 jest 测试框架(随版本更迭有可能产生无法预知的BUG，如：配置属性名变更)</p>
+<p>已完成对 jest 配置文件 <strong>jest.config.js</strong> 的基本配置</p>
+<h3 id="函数测试"><a href="#函数测试" class="headerlink" title="函数测试"></a>函数测试</h3><hr>
+<p>首先要做的事情：What needs to be tested?？</p>
+<p>如果你正在编写 Web 应用，那么一个好的起点就是测试应用的每个页面和每个用户交互。但 Web 应用由单元代码组成，如 <strong>UI 、函数和组件</strong>，分别需要单独进行测试。</p>
+<a id="more"></a>
+<h4 id="函数单元测试"><a href="#函数单元测试" class="headerlink" title="函数单元测试"></a>函数单元测试</h4><p>两种情况：</p>
+<ul>
+<li>你正接手一些函数功能<strong>未知</strong>的代码</li>
+<li>你要实现之前没有的<strong>新功能</strong>,但不知是否实现</li>
+</ul>
+<p>对于这两种情况，你可以通过将<strong>测试</strong>看作检查给定函数是否产生<strong>预期结果</strong>来帮助自己。 以下是典型测试流程的样子：</p>
+<ul>
+<li>导入要测试的函数</li>
+<li>给函数<strong>输入</strong></li>
+<li>定义<strong>期望</strong></li>
+<li>检查是否按<strong>预期</strong>输出</li>
+</ul>
+<p>只需这样执行：输入 → 预期输出 → 断言结果</p>
+<h4 id="书写测试用例"><a href="#书写测试用例" class="headerlink" title="书写测试用例"></a>书写测试用例</h4><p>以下是一个完整的测试用例</p>
+<p>创建 filename.js 文件，描述测试函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; utils.js</span><br><span class="line">export function fixedZero(val) &#123;</span><br><span class="line">  return val * 1 &lt; 10 ? &#96;0$&#123;val&#125;&#96; : val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建 filename.test.js 文件,描述断言</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; utils.test.js</span><br><span class="line">import &#123; fixedZero &#125; from &#39;.&#x2F;utils&#39;;</span><br><span class="line">...</span><br><span class="line">&#x2F;&#x2F; describe(&#39;函数分组测试描述&#39;,() &#x3D;&gt; &#123;</span><br><span class="line">&#x2F;&#x2F;   test(&#39;单元测试描述&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">&#x2F;&#x2F;       expect(&quot;函数结果&quot;).toEqual(&quot;期望结果&quot;);</span><br><span class="line">&#x2F;&#x2F;   &#125;);    </span><br><span class="line">&#x2F;&#x2F; &#125;)</span><br><span class="line"></span><br><span class="line">describe(&#39;fixedZero tests&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">    it(&#39;should not pad large numbers&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">        expect(fixedZero(10)).toEqual(10);</span><br><span class="line">        expect(fixedZero(11)).toEqual(11);</span><br><span class="line">        expect(fixedZero(15)).toEqual(15);</span><br><span class="line">        expect(fixedZero(20)).toEqual(20);</span><br><span class="line">        expect(fixedZero(100)).toEqual(100);</span><br><span class="line">        expect(fixedZero(1000)).toEqual(1000);</span><br><span class="line">        expect(fixedZero(1000)).toEqual(1000);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">    it(&#39;should pad single digit numbers and return them as string&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">        expect(fixedZero(0)).toEqual(&#39;00&#39;);</span><br><span class="line">        expect(fixedZero(1)).toEqual(&#39;01&#39;);</span><br><span class="line">        expect(fixedZero(2)).toEqual(&#39;02&#39;);</span><br><span class="line">        expect(fixedZero(3)).toEqual(&#39;03&#39;);</span><br><span class="line">        expect(fixedZero(4)).toEqual(&#39;04&#39;);</span><br><span class="line">        expect(fixedZero(5)).toEqual(&#39;05&#39;);</span><br><span class="line">        expect(fixedZero(6)).toEqual(&#39;06&#39;);</span><br><span class="line">        expect(fixedZero(7)).toEqual(&#39;07&#39;);</span><br><span class="line">        expect(fixedZero(8)).toEqual(&#39;08&#39;);</span><br><span class="line">        expect(fixedZero(9)).toEqual(&#39;09&#39;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在命令行输入npm test utils.test.js，我们可以看到命令台的返回<br><img src="https://blogimage-1259219507.cos.ap-chengdu.myqcloud.com/fenzuceshi.png" alt="ceshi.png"></p>
+<h3 id="实现在浏览器上实现测试结果的可视化显示"><a href="#实现在浏览器上实现测试结果的可视化显示" class="headerlink" title="实现在浏览器上实现测试结果的可视化显示"></a>实现在浏览器上实现测试结果的可视化显示</h3><hr>
+<p>当我们对一些比较庞大的项目，要进行成百上千个函数进行单元测试时，测试结果仅仅显示在控制台明显不够看。如何优雅的让测试结果展示出来，并可以详细的观察测试结果的具体问题呢？</p>
+<p>我们会想到将 jest 的测试结果 –&gt; 存储 –&gt; 发请求(简单服务器) –&gt; 发送到浏览器 –&gt; 展示</p>
+<h4 id="两种方法"><a href="#两种方法" class="headerlink" title="两种方法"></a>两种方法</h4><ul>
+<li>通过 nodejs 实现但是需要配置一个简单的 node 服务器，来实现在浏览器显示。但是方法过于繁琐，不在赘述。</li>
+<li>借助于报告工具 jest-html-report (本质与第一个方法没有区别，只是这个工具是打包好的 node 库，可以直接投入使用)</li>
+</ul>
+<h4 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h4><p>根据 jest 官方文档在 jest.config.js 中有 testResultsProcessor 属性：</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th align="center">Description</th>
+<th align="center">Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>testResultsProcessor</td>
+<td align="center">This option allows the use of a custom results processor. This processor must be a node module that  exports a function expecting an object with the following structure as the first argument and return it:</td>
+<td align="center">string</td>
+<td>undefined</td>
+</tr>
+</tbody></table>
+<p>这个属性可以允许结果处理程序使用。这个处理器必须是一个输出函数的 node 模块，这个函数的第一个参数会接收测试结果，且必须在最终返回测试结果。可以用与于接收测试结果，且在最终返回测试结果</p>
+<p>首先我们安装它：cnpm install jest-html-report  –save-dev </p>
+<p>在 jest.config.js 中，具体配置 jest-html-reporter 的属性</p>
+<p>用到的属性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="center">Description</th>
+<th align="center">Type</th>
+<th align="center">Default</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pageTitle</td>
+<td align="center">The title of the document</td>
+<td align="center">string</td>
+<td align="center">“Test Suite”</td>
+</tr>
+<tr>
+<td align="left">outputPath</td>
+<td align="center">The path to where the plugin will output the HTML report</td>
+<td align="center">string</td>
+<td align="center">“./test-report.html”</td>
+</tr>
+<tr>
+<td align="left">includeFailureMsg</td>
+<td align="center">If this setting is set to true, this will output the detailed failure message for each failed test.</td>
+<td align="center">boolean</td>
+<td align="center">false</td>
+</tr>
+</tbody></table>
+<p>其他属性参考<strong>官方文档</strong>：<a href="https://github.com/Hargne/jest-html-reporter/wiki/configuration" target="_blank" rel="noopener">https://github.com/Hargne/jest-html-reporter/wiki/configuration</a></p>
+<p>完成 jest.config.js 中 jest-html-reporter 的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;jest.config.js</span><br><span class="line">module.exports&#x3D;&#123;</span><br><span class="line">    ...</span><br><span class="line">    testResultsProcessor:&#39;.&#x2F;testReport&#39;,</span><br><span class="line">    reporters: [</span><br><span class="line">    &#39;default&#39;,</span><br><span class="line">    [</span><br><span class="line">      &#39;.&#x2F;node_modules&#x2F;jest-html-reporter&#39;,</span><br><span class="line">      &#123;</span><br><span class="line">        &#x2F;&#x2F;输出页面标题</span><br><span class="line">        pageTitle: &#39;Test Report&#39;,</span><br><span class="line">        &#x2F;&#x2F;插件将会输出的HTML报告的路径。</span><br><span class="line">        outputPath:&#39;testReport&#x2F;JesttestReport.html&#39;,</span><br><span class="line">        &#x2F;&#x2F;为每个失败的测试输出详细的失败消息。</span><br><span class="line">        includeFailureMsg: true,</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再次在命令行输入 npm test utils.test.js，我们可以看到测试结果被成功返回在 testReport/JesttestReport.html 中</p>
+<p>我们打开生成的 html 文件，测试结果的可视化就完成啦。<br><img src="https://blogimage-1259219507.cos.ap-chengdu.myqcloud.com/Jesttestreport.png" alt="testreport.png"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><hr>
+<ul>
+<li>掌握单元测试</li>
+<li>实现自动生成测试报告</li>
+</ul>
+<h3 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a>参考阅读</h3><hr>
+<ul>
+<li>如何将jest的测试结果转移到页面上：<a href="https://juejin.im/post/5c2c57ba5188257ed57eb471" target="_blank" rel="noopener">https://juejin.im/post/5c2c57ba5188257ed57eb471</a></li>
+<li>关于 jest 测试结果如何在浏览器上显示的问题：<a href="https://blog.csdn.net/weixin_34314962/article/details/88811759" target="_blank" rel="noopener">https://blog.csdn.net/weixin_34314962/article/details/88811759</a></li>
+<li>Jest官方文档：<a href="https://jestjs.io/docs/en/getting-started.html" target="_blank" rel="noopener">https://jestjs.io/docs/en/getting-started.html</a></li>
+<li>jest-html-reporter官方文档：<a href="https://github.com/Hargne/jest-html-reporter/wiki/configuration" target="_blank" rel="noopener">https://github.com/Hargne/jest-html-reporter/wiki/configuration</a></li>
+</ul>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shen-yu.gitee.io/2019/ck6gj6ogu0008gkvc45cg7uyo/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jest/" rel="tag">Jest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2019/ck6gj6oh2000igkvc1kb9g9uy/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            React - 路由跳转
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/ck6gj6ogn0003gkvc8qg017a5/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">滚动条样式设置</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: '',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2020
+        SeaHai
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/IAM.png" alt="SeaHai&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['面朝大海，春暖花开','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 100,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>
